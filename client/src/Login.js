@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap'
 const authEndpoint = "https://accounts.spotify.com/authorize";
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "6a132f4de6684e5abde7622e54a88af0";
-const redirectUri = "http://18.117.95.56";
+const redirectUri = "http://3.145.157.27";
 const scopes = [
     "streaming",
     "user-read-email",
