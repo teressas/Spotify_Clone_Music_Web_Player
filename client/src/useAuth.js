@@ -12,7 +12,7 @@ export default function useAuth(code) {
     // run useEffect everytime code changes, calls Api created in server 
     useEffect(() => {
         axios
-            .post('http://localhost:8000/login', {
+            .post('http://localhost:8000/api/login', {
                 // post code to route, calls all the code on server
                 code,
             })
@@ -41,7 +41,7 @@ export default function useAuth(code) {
         // do this on an interval based on the expired time
         const interval = setInterval(() => {
             axios
-                .post('http://localhost:8000/refresh', {
+                .post('http://localhost:8000/api/refresh', {
                     refreshToken,
                 })
                 .then(res => {
