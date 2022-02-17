@@ -19,7 +19,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // route to refresh token
-app.post('/refresh', (req, res) => {
+app.post('/api/refresh', (req, res) => {
     // get refresh token from
     const refreshToken = req.body.refreshToken
     const spotifyApi = new SpotifyWebApi({
@@ -46,7 +46,7 @@ app.post('/refresh', (req, res) => {
 })
 
 // create login route to create new instance of the SpotifyWebApi and pass in the authentication parameters
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     const code = req.body.code
     const spotifyApi = new SpotifyWebApi({
         redirectUri: process.env.REDIRECT_URI,
@@ -71,7 +71,7 @@ app.post('/login', (req, res) => {
         })
 })
 
-app.get('/lyrics', async (req, res) => {
+app.get('/api/lyrics', async (req, res) => {
     const lyrics =
         (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics Found"
     res.json({ lyrics })
