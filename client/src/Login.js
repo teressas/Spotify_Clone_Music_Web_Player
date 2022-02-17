@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap'
 const authEndpoint = "https://accounts.spotify.com/authorize";
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "6a132f4de6684e5abde7622e54a88af0";
-const redirectUri = "https://github.com/teressas/Spotify_Clone_Music_Web_Player";
+const redirectUri = "http://localhost:8000/api";
 const scopes = [
     "streaming",
     "user-read-email",
