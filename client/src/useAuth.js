@@ -27,7 +27,7 @@ export default function useAuth(code) {
             .catch(() => {
                 console.log("inside useAuth.catch code is", code)
                 // if there's an error takes user back to login
-                window.location = '/'
+                // window.location = '/'
             })
     }, [code])
 
