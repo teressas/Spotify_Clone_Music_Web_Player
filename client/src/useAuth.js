@@ -11,6 +11,7 @@ export default function useAuth(code) {
 
     // run useEffect everytime code changes, calls Api created in server 
     useEffect(() => {
+        console.log(code)
         axios
             .post('http://localhost:8000/api/login', {
                 // post code to route, calls all the code on server

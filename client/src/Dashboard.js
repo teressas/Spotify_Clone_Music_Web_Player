@@ -42,6 +42,7 @@ export default function Dashboard({ code }) {
     // everytime access token changes we need to set access token
     useEffect(() => {
         if (!accessToken) return
+        console.log(accessToken)
         spotifyApi.setAccessToken(accessToken)
     }, [accessToken])
 

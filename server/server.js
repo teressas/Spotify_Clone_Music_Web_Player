@@ -48,16 +48,19 @@ app.post('/api/refresh', (req, res) => {
 // create login route to create new instance of the SpotifyWebApi and pass in the authentication parameters
 app.post('/api/login', (req, res) => {
     const code = req.body.code
+    console.log(code)
     const spotifyApi = new SpotifyWebApi({
         redirectUri: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET
     })
+    console.log(spotifyApi)
 
     // from spotify-web-api-node documentation, 
     // authorizes that we have a code then provides the tokens we need to do the accessing of the code that we need to refresh authorization
     spotifyApi
         .authorizationCodeGrant(code)
+        console.log(code)
         .then(data => {
             // call access token, refresh token and expiresIn from API call
             res.json({
@@ -67,6 +70,7 @@ app.post('/api/login', (req, res) => {
             })
         })
         .catch(err => {
+            console.log(err)
             res.sendStatus(400)
         })
 })
