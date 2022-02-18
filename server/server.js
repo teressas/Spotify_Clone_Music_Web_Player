@@ -1,6 +1,8 @@
 // call .env file 
 require('dotenv').config()
-console.log("line3",process.env)
+console.log("line3",process.env.REDIRECT_URI)
+console.log("line4",process.env.CLIENT_ID)
+console.log("line5",process.env.CLIENT_SECRET)
 
 // import express, cors, bodyParser, lyricsFinder and SpotifyWebApi library
 const express = require('express')
@@ -50,6 +52,9 @@ app.post('/api/refresh', (req, res) => {
 app.post('/api/login', (req, res) => {
     const code = req.body.code
     console.log("line52",code)
+    console.log("login",process.env.REDIRECT_URI)
+    console.log("login",process.env.CLIENT_ID)
+    console.log("login",process.env.CLIENT_SECRET)
     const spotifyApi = new SpotifyWebApi({
         redirectUri: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
