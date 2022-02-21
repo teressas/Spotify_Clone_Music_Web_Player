@@ -1,7 +1,7 @@
-// call .env file 
-// require('dotenv').config()
-require('dotenv').config({ path: '/server/.env' })
-require('dotenv').config({ debug: process.env.DEBUG })
+// call .env file
+require('dotenv').config()
+// require('dotenv').config({ path: '/server/.env' })
+// require('dotenv').config({ debug: process.env.DEBUG })
 console.log("line5",process.env.REDIRECT_URI, process.env.CLIENT_ID, process.env.CLIENT_SECRET)
 
 // import express, cors, bodyParser, lyricsFinder and SpotifyWebApi library
