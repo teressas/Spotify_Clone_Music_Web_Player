@@ -11,7 +11,6 @@ const bodyParser = require('body-parser')
 const lyricsFinder = require('lyrics-finder')
 const SpotifyWebApi = require('spotify-web-api-node')
 
-
 const app = express()
 app.use(cors())
 
@@ -25,7 +24,7 @@ app.post('/api/refresh', (req, res) => {
     // get refresh token from
     const refreshToken = req.body.refreshToken
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: process.env.REDIRECT_URI,
+        redirectUri: process.env.REACT_APP_REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken,
@@ -52,7 +51,7 @@ app.post('/api/login', (req, res) => {
     const code = req.body.code
     // console.log("login",process.env.CLIENT_ID)
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: process.env.REDIRECT_URI,
+        redirectUri: process.env.REACT_APP_REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET
     })
