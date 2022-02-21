@@ -1,17 +1,19 @@
-// call .env file
-require('dotenv').config()
-// require('dotenv').config({ path: '/server/.env' })
-// require('dotenv').config({ debug: process.env.DEBUG })
-console.log("line5",process.env.REDIRECT_URI, process.env.CLIENT_ID, process.env.CLIENT_SECRET)
-
 // import express, cors, bodyParser, lyricsFinder and SpotifyWebApi library
 const express = require('express')
+const app = express()
+const port = process.env.PORT || 8000;
+
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const lyricsFinder = require('lyrics-finder')
 const SpotifyWebApi = require('spotify-web-api-node')
 
-const app = express()
+// call .env file
+require('dotenv').config()
+console.log("line13", process.env)
+console.log("line14",process.env.REACT_APP_REDIRECT_URI, process.env.CLIENT_ID, process.env.CLIENT_SECRET)
+
+
 app.use(cors())
 
 // use json bodyParser
@@ -24,7 +26,7 @@ app.post('/api/refresh', (req, res) => {
     // get refresh token from
     const refreshToken = req.body.refreshToken
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: process.env.REACT_APP_REDIRECT_URI,
+        redirectUri: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken,
@@ -51,7 +53,7 @@ app.post('/api/login', (req, res) => {
     const code = req.body.code
     // console.log("login",process.env.CLIENT_ID)
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: process.env.REACT_APP_REDIRECT_URI,
+        redirectUri: process.env.REDIRECT_URI,
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET
     })
@@ -79,4 +81,4 @@ app.get('/api/lyrics', async (req, res) => {
     res.json({ lyrics })
 })
 
-app.listen(8000)
+app.listen(port)
