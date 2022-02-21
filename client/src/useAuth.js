@@ -12,14 +12,12 @@ export default function useAuth(code) {
 
     // run useEffect everytime code changes, calls Api created in server 
     useEffect(() => {
-        console.log(code)
         axios
             .post('http://localhost:8000/api/login', {
                 // post code to route, calls all the code on server
                 code,
             })
             .then(res => {
-                console.log("inside useAuth.then code is",code)
                 setAccessToken(res.data.accessToken)
                 setRefreshToken(res.data.refreshToken)
                 setExpiresIn(res.data.expiresIn)
@@ -27,7 +25,6 @@ export default function useAuth(code) {
                 window.history.pushState({}, null, "/")
             })
             .catch(() => {
-                console.log("inside useAuth.catch code is", code)
                 // if there's an error takes user back to login
                 // window.location = '/'
             })

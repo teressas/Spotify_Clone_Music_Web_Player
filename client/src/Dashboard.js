@@ -27,7 +27,6 @@ export default function Dashboard({ code }) {
 
     useEffect(() => {
         if (!playingTrack) return
-
         axios.get('http://localhost:8000/api/lyrics', {
             params: {
                 track: playingTrack.title,
@@ -41,7 +40,6 @@ export default function Dashboard({ code }) {
     // everytime access token changes we need to set access token
     useEffect(() => {
         if (!accessToken) return
-        console.log(accessToken)
         spotifyApi.setAccessToken(accessToken)
     }, [accessToken])
 
