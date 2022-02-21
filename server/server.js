@@ -10,9 +10,6 @@ const SpotifyWebApi = require('spotify-web-api-node')
 
 // call .env file
 require('dotenv').config()
-console.log("line13", process.env)
-console.log("line14",process.env.REACT_APP_REDIRECT_URI, process.env.CLIENT_ID, process.env.CLIENT_SECRET)
-
 
 app.use(cors())
 
@@ -31,7 +28,6 @@ app.post('/api/refresh', (req, res) => {
         clientSecret: process.env.REACT_APP_CLIENT_SECRET,
         refreshToken,
     })
-    console.log(spotifyApi)
     // clientId, clientSecret and refreshToken has been set on the api object previous to this call.
     // source: spotify documentation
     spotifyApi
@@ -43,7 +39,6 @@ app.post('/api/refresh', (req, res) => {
             })
         })
         .catch(err => {
-            console.log(err)
             res.sendStatus(400)
         })
 })
@@ -57,7 +52,6 @@ app.post('/api/login', (req, res) => {
         clientId: process.env.REACT_APP_CLIENT_ID,
         clientSecret: process.env.REACT_APP_CLIENT_SECRET
     })
-    console.log(spotifyApi)
     // from spotify-web-api-node documentation, 
     // authorizes that we have a code then provides the tokens we need to do the accessing of the code that we need to refresh authorization
     spotifyApi
