@@ -16,16 +16,16 @@
 - Spotify Developer
 
 #### Client Side Dependencies
-```npm i bootstrap react-bootstrap```
-```npm i spotify-web-api-node```
-```npm i react-spotify-web-playback```
+```npm i bootstrap react-bootstrap```</br>
+```npm i spotify-web-api-node```</br>
+```npm i react-spotify-web-playback```</br>
 
 #### Server side dependencies
-```npm i express```
-```npm i spotify-web-api-node```
-```npm i nodemon --save-dev```
-```npm i cors```
-```npm i body-parser```
-```npm i lyrics-finder```
+```npm i express```</br>
+```npm i spotify-web-api-node```</br>
+```npm i nodemon --save-dev```</br>
+```npm i cors```</br>
+```npm i body-parser```</br>
+```npm i lyrics-finder```</br>
 ```npm i dotenv```
 
