@@ -10,6 +10,8 @@
 
 ## Getting Started
 - A mini Spotify clone web music player
+
+## Next Steps
 - This project currently works on Safari only
 - Working on redirect http requests to https so it'll work on Google Chrome, Firefox and Edge
 - Aesthetics are still being worked on
